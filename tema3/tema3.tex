@@ -1,0 +1,59 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{sectsty}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{graphicx}
+
+\allsectionsfont{\textbf \normalfont}
+\setlength\parindent{0pt}
+\pagestyle{fancyplain}
+\fancyhead{}
+\fancyfoot[L]{Electrónica de Microondas}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}\fancyfoot[C]{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{13.6pt}
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\exercisetitle}[1]{
+\section{}
+#1 \\[0.1cm]
+\horrule{1pt}
+}
+\title{
+\normalfont \normalsize
+\huge Ejercicios Tema 3 \\
+\horrule{2pt} \\[0.5cm]
+}
+\author{Luis Sánchez Velasco}
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+\include{equationlist}
+\include{ej1/ej1}
+\include{ej2/ej2}
+\end{document}

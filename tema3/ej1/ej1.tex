@@ -1,0 +1,19 @@
+\exercisetitle{
+Una línea de transmisión posee los siguientes parámetros por unidad de longitud: $L=0.3\mu H/m$, $C=450pF/m$,
+$R=5\Omega /m$, y $G=0.01S/m$. Calcular la constante de propagación y la impedancia característica de esta
+línea a $880MHz$. Recalcular estos parámetros en ausencia de pérdidas.}
+
+La constante de propagación en medios con perdidas se define como:
+\propconstant{ = \alpha + j \beta}
+Donde sustituyendo por los valores dados en el ejercicio, $L=0.3\mu H/m$, $C=450pF/m$, $R=5\ohm /m$, y $G=0.01S/m$ obtenemos:
+\begin{align*}
+  \alpha &= 0.226 \\
+    \beta &= 64.2
+\end{align*}
+Y para el cálculo de la impedancia característica:
+\impedance{= 25.8 + 0.01j }
+\\[0.5cm]
+Para el caso sin perdidas asumiremos $R = G= 0$, por lo que la constante de propagación quedará como:
+\propconstantnoloss{ = 64j}
+y la impedancia característica:
+\impedancenoloss{= 25.8 \Omega}

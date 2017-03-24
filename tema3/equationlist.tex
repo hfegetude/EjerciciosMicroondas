@@ -1,0 +1,30 @@
+\newcommand{\propconstant}[1]{
+  \begin{equation*}
+      \gamma = \sqrt{(R + j\omega L)(G + j \omega C)} #1
+  \end{equation*}
+}
+
+\newcommand{\propconstantnoloss}[1]{
+  \begin{equation*}
+      \gamma =j\omega \sqrt{ L C} #1
+  \end{equation*}
+}
+
+\newcommand{\impedance}[1]{
+  \begin{equation*}
+      Z_0 = \sqrt{\frac{(R + j\omega L)}{(G + j \omega C)}}  #1
+  \end{equation*}
+}
+
+\newcommand{\impedancenoloss}[1]{
+  \begin{equation*}
+    Z_0 = \sqrt{\frac{L}{C}} #1
+  \end{equation*}
+}
+
+\newcommand{\swr}[1]{
+  \begin{equation*}
+    SWR = \frac{1 + | \Gamma_L |}{1 - | \Gamma_L |} #1
+  \end{equation*}
+
+}
