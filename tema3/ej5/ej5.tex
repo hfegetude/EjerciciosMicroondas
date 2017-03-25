@@ -1,0 +1,16 @@
+\exercisetitle{
+Asumiendo que la impedancia característica es real, mostrar que para una carga puramente reactiva de
+la forma $Z_L = jX_L$, la magnitud del coeficiente de reflexión es siempre la unidad.
+}
+
+Para demostrar esto empezaremos colocando la expresión del coeficiente de reflexión:
+\[\Gamma_L = \frac{jX_L - Zo}{jX_L + Zo} \]
+Y convertiremos tanto el divisor como el denominador a modulo y fase:
+\begin{align*}
+  \Gamma_L &= \frac{\sqrt{(X_L)^2 +(-Zo)^2]}e^{jarctan(\frac{X_L}{-Z_0} )}  }{\sqrt{(X_L)^2 +(Zo)^2]}e^{jarctan(\frac{X_L}{Z_0} )}  } \\
+  \Gamma_L &= 1e^{j(\arctan{\frac{X_L}{-Z_0} } - \arctan{\frac{X_L}{Z_0} })}
+\end{align*}
+Como la función arcotangente es impar:
+\[ \Gamma_L &= e^{-j2\arctan{\frac{X_L}{Z_0} }
+
+Se puede ver como ambos modulos serían iguales, dividiendose los dos a 1, esto tiene sentido ya que si la caraga fuese puramente reactiva, no debería consumir ningún tipo de enrergía, por tanto toda ha de ser rebotada hacia el generador.
