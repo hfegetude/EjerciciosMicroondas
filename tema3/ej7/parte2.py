@@ -166,7 +166,7 @@ ax.axis('off')
 ax.plot(x_1, y_1 , 'k', linewidth = 0.3)
 #fig.axhline(y=0, xmin=-0.99, xmax=0.99, color='k', hold=None, linewidth = 0.5)
 ax.plot([1, -1], [0, 0], 'k', linewidth = 0.3)
-ax.plot([0], [0], 'ko')
+#ax.plot([0], [0], 'ko')
 #black big lines
 for i in np.arange(0.05, 0.2, 0.05):
     paint_line(i , ax)
@@ -183,8 +183,29 @@ paint_text_wavelength()
 
 p1 , p2 = imp2point(1.4, 0.8)
 ax.plot(p1, p2, 'ko')
-ax.plot([0 ,p1], [0 ,p2], 'r')
 start, modd= cart2pol(p1, p2)
-print(modd, start)
+p3, p4 =move_wl(p1, p2, 0.25)
+ax.plot(p3, p4, 'ko')
+end, modd= cart2pol(p3, p4)
+data_x = modd*np.cos(np.arange(start , end , -0.0001))
+data_y = modd*np.sin(np.arange(start , end , -0.0001))
+ax.plot(data_x, data_y)
+i = 0.54
+x = i/(1+i) + (1/(1+i)) * np.cos(np.arange(0 , 2*np.pi , 0.001))
+y = (1/(1+i)) * np.sin(np.arange(0 , 2*np.pi , 0.001))
+ax.plot(x, y, 'r', linewidth = 0.5)
+i = 0.3
+x = 1 + (1/(-1*i)) * np.cos(np.arange( -np.pi , np.pi,  0.0001))
+y =  (1/(i*-1))+(1/(i*-1)) * np.sin(np.arange(-np.pi , np.pi,  0.0001))
+x_t , y_t = colisionM(1, 1/i, 0, 0, 1, -1/i)
+x_f = x[x < 1]
+y_f = y[x < 1]
+y_f = y_f[x_f > -1]
+x_f = x_f[x_f > -1]
+x_f = x_f[y_f > y_t ]
+y_f = y_f[y_f > y_t ]
+ax.plot(x_f, y_f , 'r', linewidth = 0.5)
 
-fig.savefig('images/out1.pdf')
+
+
+fig.savefig('images/out2.pdf')
