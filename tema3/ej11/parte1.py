@@ -1,4 +1,3 @@
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -148,7 +147,7 @@ def imp2point(v1, v2):
     imgx = 1
     imgy =  1/v2
     imgr = 1/v2
-    return colisionM(rear, imgr, reax, reay, imgx, imgy)
+    return colision(rear, imgr, reax, reay, imgx, imgy)
 
 def move_wl(x, y , wl):
     ax_ang, modulos = cart2pol(x, y)
@@ -167,7 +166,7 @@ ax.axis('off')
 ax.plot(x_1, y_1 , 'k', linewidth = 0.3)
 #fig.axhline(y=0, xmin=-0.99, xmax=0.99, color='k', hold=None, linewidth = 0.5)
 ax.plot([1, -1], [0, 0], 'k', linewidth = 0.3)
-#ax.plot([0], [0], 'ko')
+ax.plot([0], [0], 'ko')
 #black big lines
 for i in np.arange(0.05, 0.2, 0.05):
     paint_line(i , ax)
@@ -182,23 +181,25 @@ for i in np.array([5, 10, 20, 50]):
 paint_text_degrees()
 paint_text_wavelength()
 
-p1 , p2 = imp2point(0.96, -1.62)
+p1 , p2 = imp2point(0.4, 0.6)
 ax.plot(p1, p2, 'ko')
-ax.plot([p1 ,0], [p2, 0], 'r')
-
+ax.plot([0 ,p1], [0 ,p2], 'r')
 start, modd= cart2pol(p1, p2)
-p3, p4 =move_wl(p1, p2, -0.15)
+p3, p4 = move_wl(p1, p2, 0.2)
 ax.plot(p3, p4, 'ko')
-end, modd= cart2pol(p3, p4)
-data_x = modd*np.cos(np.arange(start , end , -0.0001))
-data_y = modd*np.sin(np.arange(start , end , -0.0001))
-ax.plot(data_x, data_y)
+end,modd = cart2pol(p3, p4)
 
-i = 0.23
+data_x = modd*np.cos(np.arange(start , end   -2*np.pi, -0.0001))
+data_y = modd*np.sin(np.arange(start  , end - 2*np.pi, -0.0001))
+print(start)
+print(end)
+
+ax.plot(data_x, data_y)
+i = 0.44
 x = i/(1+i) + (1/(1+i)) * np.cos(np.arange(0 , 2*np.pi , 0.001))
 y = (1/(1+i)) * np.sin(np.arange(0 , 2*np.pi , 0.001))
 ax.plot(x, y, 'r', linewidth = 0.5)
-i = 0.17
+i = 0.68
 x = 1 + (1/(-1*i)) * np.cos(np.arange( -np.pi , np.pi,  0.0001))
 y =  (1/(i*-1))+(1/(i*-1)) * np.sin(np.arange(-np.pi , np.pi,  0.0001))
 x_t , y_t = colisionM(1, 1/i, 0, 0, 1, -1/i)

@@ -1,4 +1,3 @@
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -167,7 +166,7 @@ ax.axis('off')
 ax.plot(x_1, y_1 , 'k', linewidth = 0.3)
 #fig.axhline(y=0, xmin=-0.99, xmax=0.99, color='k', hold=None, linewidth = 0.5)
 ax.plot([1, -1], [0, 0], 'k', linewidth = 0.3)
-#ax.plot([0], [0], 'ko')
+ax.plot([0], [0], 'ko')
 #black big lines
 for i in np.arange(0.05, 0.2, 0.05):
     paint_line(i , ax)
@@ -182,23 +181,25 @@ for i in np.array([5, 10, 20, 50]):
 paint_text_degrees()
 paint_text_wavelength()
 
-p1 , p2 = imp2point(0.96, -1.62)
+p1 , p2 = imp2point(2.62, -1.14)
 ax.plot(p1, p2, 'ko')
-ax.plot([p1 ,0], [p2, 0], 'r')
 
+p3 , p4 = imp2point(0.93, -1.19)
+ax.plot(p3, p4 , 'ko')
 start, modd= cart2pol(p1, p2)
-p3, p4 =move_wl(p1, p2, -0.15)
-ax.plot(p3, p4, 'ko')
-end, modd= cart2pol(p3, p4)
-data_x = modd*np.cos(np.arange(start , end , -0.0001))
-data_y = modd*np.sin(np.arange(start , end , -0.0001))
+
+start2, modd= cart2pol(p3, p4)
+start, modd= cart2pol(p1, p2)
+print(start, start2)
+data_x = modd*np.cos(np.arange(0 , -2*np.pi , -0.0001))
+data_y = modd*np.sin(np.arange(0 , -2*np.pi , -0.0001))
 ax.plot(data_x, data_y)
 
-i = 0.23
+i = 0.93
 x = i/(1+i) + (1/(1+i)) * np.cos(np.arange(0 , 2*np.pi , 0.001))
 y = (1/(1+i)) * np.sin(np.arange(0 , 2*np.pi , 0.001))
 ax.plot(x, y, 'r', linewidth = 0.5)
-i = 0.17
+i = 1.19
 x = 1 + (1/(-1*i)) * np.cos(np.arange( -np.pi , np.pi,  0.0001))
 y =  (1/(i*-1))+(1/(i*-1)) * np.sin(np.arange(-np.pi , np.pi,  0.0001))
 x_t , y_t = colisionM(1, 1/i, 0, 0, 1, -1/i)
@@ -212,4 +213,4 @@ ax.plot(x_f, y_f , 'r', linewidth = 0.5)
 
 
 
-fig.savefig('images/out1.pdf')
+fig.savefig('images/out2.pdf')
