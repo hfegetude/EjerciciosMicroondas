@@ -1,0 +1,24 @@
+\exercisetitle{
+Una impedancia de carga de $Z_L=60+j30 \Omega$ se quiere adaptar a una línea de $50\Omega$ usando una longitud $l$ de una línea sin pérdidas con una impedancia característica $Z_I$. Encontrar los valores requeridos para $Z_I$ y $l$.
+}
+
+Resolveremos este ejercicio de forma analítica, debido a su complejidad usando la carta de smith (o al menos a mi no se me ocurre nada).
+Usaremos la expresión que relacion la impedancia de entrada ($Z_{in}$) con la impedancia característica de la línea, la impedancia de carga y la longitud de la línea.
+\[Z_{in} = Z_0 \frac{Z_L + jZ_0 \tan{ \beta l} }{Z_0 + jZ_L \tan{ \beta l} } \]
+Que sustiyendo: (Queremos que $Z_in = 50 \Omega$ para que la línea esta adapatada)
+\[50 = Z_0 \frac{60+j30  + jZ_0 \tan{ \beta l} }{Z_0 + j(60+j30 ) \tan{ \beta l} } \]
+Que separando la parte real de la imaginaria en dos ecuaciones distintas:
+\begin{align}
+  3000 \tan{ \beta l} &= Z_0 + Z_0^2 \tan{ \beta l} \\
+  -150 \tan{ \beta l} &= Z_0
+\end{align}
+Sustituyendo $\tan{ \beta l}$ de la ecuación (2) en la ecuación (1):
+\begin{align*}
+  50 Z_0 &= \frac{Z_0^2}{150}
+\end{align*}
+Donde obtenemos 3 soluciones $Z_0 = +86.6, -86.6, 0 \Omega$, donde podemos ver que la única con sentido físico es $86.8 \Omega$. Con este dato podemos vover a la ecución 2 para hayar la longitud de la línea:
+
+\[-150 \tan{ \beta l} = 86.6 \]
+
+Cuya solución es $\beta l = 0.52$, que dividiremos entre $2 \pi$ para obtener la longitud en longitudes de onda.
+\[l = 0.083 \lambda\]
